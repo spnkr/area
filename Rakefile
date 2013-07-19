@@ -1,12 +1,9 @@
-require 'bundler'
-Bundler::GemHelper.install_tasks
+# -*- coding: utf-8 -*-
+$:.unshift("/Library/RubyMotion/lib")
+require 'motion/project'
+require './lib/area'
 
-require 'rake/testtask'
-
-Rake::TestTask.new do |t|
-  t.libs.push "lib"
-  t.test_files = FileList['test/unit/*_test.rb']
-#  t.verbose = true
+Motion::Project::App.setup do |app|
+  # Use `rake config' to see complete project settings.
+  app.name = 'area'
 end
-
-task :default => :test
